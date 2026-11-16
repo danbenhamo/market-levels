@@ -13,20 +13,20 @@ const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(
 const BASE_CSS = `
 :root{--bg:#f3f5f8;--surface:#fff;--ink:#131a26;--muted:#5a6476;--line:#dde2ea;--accent:#1f4fd1;--bull:#0f7a4a;--bear:#c2362b;--warn:#b06b00;
 --accent-bg:#e7edfc;--f-body:"Heebo","Segoe UI",Arial,sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.6;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:19px;line-height:1.65;margin:0}
 .wrap{max-width:760px;margin:0 auto;padding:22px 18px 30px;display:grid;gap:14px}
-.eyebrow{font-size:12px;letter-spacing:.06em;color:var(--muted)}
-h1{font-size:26px;margin:2px 0 0;font-weight:800}
+.eyebrow{font-size:15px;letter-spacing:.06em;color:var(--muted)}
+h1{font-size:34px;margin:2px 0 0;font-weight:800}
 section{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;break-inside:avoid}
-h2{font-size:16px;margin:0 0 8px}
+h2{font-size:22px;margin:0 0 8px}
 p{margin:0 0 6px} ul{margin:0;padding-inline-start:20px;display:grid;gap:4px}
-.verdict{border:2px solid var(--accent);background:var(--accent-bg);font-size:16px;font-weight:600}
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.verdict{border:2px solid var(--accent);background:var(--accent-bg);font-size:21px;font-weight:600}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px}
 .tile{border:1px solid var(--line);border-radius:8px;padding:6px 10px}
-.tile b{display:block;font-size:11px;color:var(--muted);font-weight:500}
-.tile span{font-family:var(--f-mono);font-size:15px;font-weight:600;direction:ltr;unicode-bidi:isolate}
-.foot{font-size:11px;color:var(--muted);text-align:center}`;
-const PRINT_CSS = `html{zoom:0.85;background:#f3f5f8} section{break-inside:avoid} body{-webkit-print-color-adjust:exact;print-color-adjust:exact}`;
+.tile b{display:block;font-size:15px;color:var(--muted);font-weight:500}
+.tile span{font-family:var(--f-mono);font-size:22px;font-weight:600;direction:ltr;unicode-bidi:isolate}
+.foot{font-size:14px;color:var(--muted);text-align:center}`;
+const PRINT_CSS = `html{background:#f3f5f8} section{break-inside:avoid} body{-webkit-print-color-adjust:exact;print-color-adjust:exact}`;
 const FONTS = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap">';
 
 function fromText(title, subtitle, text) {
@@ -56,8 +56,9 @@ ${out.join('\n')}<div class="foot">ניתוח כללי, לא ייעוץ השקע
   if (args.html) body = fs.readFileSync(args.html, 'utf8');
   else body = fromText(args.title || 'דוח', args.subtitle || '', fs.readFileSync(args.text, 'utf8'));
   if (!/<link[^>]+fonts\.googleapis/.test(body)) body = FONTS + body;
+  const zoom = args.html ? 'html{zoom:1.2} section{break-inside:auto} .tick>div,.lv,.sc,tr,li,h2{break-inside:avoid} h2{break-after:avoid}' : '';
   const doc = `<!doctype html><html lang="he" dir="rtl" data-theme="light"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><style>${PRINT_CSS}</style></head><body>${body}</body></html>`;
+<meta name="viewport" content="width=device-width,initial-scale=1"><style>${PRINT_CSS}${zoom}</style></head><body>${body}</body></html>`;
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 800, height: 1100 } });
   await page.emulateMedia({ colorScheme: 'light', media: 'screen' });
