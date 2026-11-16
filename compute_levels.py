@@ -18,7 +18,10 @@ def walls(path, spot, basis, oi_date, horizon_days=14, band=0.05):
     d0 = pd.Timestamp(oi_date)
     w = df[(df.exp >= d0) & (df.exp <= d0 + pd.Timedelta(days=horizon_days)) & df.k.between(spot * (1 - band), spot * (1 + band))]
     g = w.groupby(["cp", "k"]).quantity.sum()
-    puts, calls = g["P"].nlargest(2), g["C"].nlargest(2)
+    # put walls are taken at/below spot, call walls at/above spot, so the two lines never coincide
+    p_, c_ = g["P"], g["C"]
+    puts = p_[p_.index <= spot].nlargest(2)
+    calls = c_[c_.index >= spot].nlargest(2)
     r = lambda x: round(float(x) + basis, 2)
     return {
         "put_wall": r(puts.index[0]), "call_wall": r(calls.index[0]),

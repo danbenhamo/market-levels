@@ -5,7 +5,7 @@
   "ES": {
     "put_wall": 7523.0,
     "call_wall": 7723.0,
-    "put_2": 7623.0,
+    "put_2": 7323.0,
     "call_2": 7823.0,
     "index_put_wall": 7500.0,
     "index_call_wall": 7700.0,
@@ -15,5 +15,17 @@
     "basis": 23.0,
     "index_spot": 7561.67
   },
-  "NQ": null
+  "NQ": {
+    "put_wall": 27594.0,
+    "call_wall": 28094.0,
+    "put_2": 27094.0,
+    "call_2": 29094.0,
+    "index_put_wall": 27500.0,
+    "index_call_wall": 28000.0,
+    "put_wall_oi": 666,
+    "call_wall_oi": 538,
+    "pc_oi_ratio": 1.23,
+    "basis": 94.0,
+    "index_spot": 27943.74
+  }
 }
