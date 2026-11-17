@@ -65,6 +65,9 @@ tr.key td{background:var(--accent-bg)}
 .note{font-size:14.5px;color:#2a3242;margin-top:6px}
 .gl{font-size:13.5px;color:#2a3242;display:grid;gap:4px}
 .gl b{color:var(--ink)}
+.coach{border:2px solid #7a4cc2;background:#f3edfc}
+.coach h2{color:#5a2ea6;font-size:17px;margin-bottom:4px}
+.coach ul{font-size:15.5px;gap:3px}
 .foot{font-size:12.5px;color:var(--muted);text-align:center}`;
 
 module.exports = function briefHtml(d) {
@@ -75,6 +78,8 @@ module.exports = function briefHtml(d) {
   const sched = (d.schedule || []).map(r => `<tr class="${r.key ? 'key' : ''}"><td class="time">${t(r.time)}</td><td><b>${t(r.event)}</b>${r.why ? ` · ${t(r.why)}` : ''}</td></tr>`).join('');
   const terms = (d.glossary || Object.keys(GLOSSARY)).filter(k => GLOSSARY[k]).map(k => `<div><b>${t(k)}:</b> ${t(GLOSSARY[k])}</div>`).join('');
   const em = d.expected_move || {};
+  const coach = (d.coaching || []).slice(0, 3).map(x => `<li>${t(x)}</li>`).join('');
+  const coachCard = coach ? `<div class="card coach"><h2>${esc(d.coaching_title || 'דגשים מהמסחר שלך אתמול')}</h2><ul>${coach}</ul></div>` : '';
   return `<title>${esc(d.title || 'תדריך בוקר NQ / ES')}</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800&display=swap">
 <style>${CSS}</style>
@@ -82,6 +87,7 @@ module.exports = function briefHtml(d) {
 <div class="page">
   <header><div class="date">${t(d.date_line)}</div><h1>${esc(d.title || 'תדריך בוקר NQ / ES')}</h1></header>
   <div class="card oneline"><span class="lbl">השורה התחתונה</span>${t(d.bottom_line)}</div>
+  ${coachCard}
   <div class="dirs">${dirCard('NQ · נאסד"ק', d.nq)}${dirCard('ES · S&P 500', d.es)}</div>
   <div class="card"><h2>המספרים החשובים להיום</h2>
     <table><thead><tr><th>רמה</th><th>ES</th><th>NQ</th><th>מה זה אומר</th></tr></thead><tbody>${levels}</tbody></table>
