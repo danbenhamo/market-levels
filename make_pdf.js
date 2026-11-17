@@ -1,5 +1,6 @@
 // Render the daily reports to a clean A4 PDF (light theme, RTL).
 //   node make_pdf.js --html page.html --out brief.pdf          (a full briefing page, as published)
+//   node make_pdf.js --brief data.json --out brief.pdf           (two-page morning brief, see brief_template.js)
 //   node make_pdf.js --title "..." --subtitle "..." --text body.txt --out note.pdf
 // body.txt format: "## heading" starts a section, "- item" is a bullet, "! text" is a highlighted verdict line,
 // "key: value" lines inside a "## " section that starts with "##=" become number tiles; other lines are paragraphs.
@@ -53,7 +54,8 @@ ${out.join('\n')}<div class="foot">ניתוח כללי, לא ייעוץ השקע
 
 (async () => {
   let body;
-  if (args.html) body = fs.readFileSync(args.html, 'utf8');
+  if (args.brief) body = require('./brief_template.js')(JSON.parse(fs.readFileSync(args.brief, 'utf8')));
+  else if (args.html) body = fs.readFileSync(args.html, 'utf8');
   else body = fromText(args.title || 'דוח', args.subtitle || '', fs.readFileSync(args.text, 'utf8'));
   if (!/<link[^>]+fonts\.googleapis/.test(body)) body = FONTS + body;
   const zoom = args.html ? 'html{zoom:1.2} section{break-inside:auto} .tick>div,.lv,.sc,tr,li,h2{break-inside:avoid} h2{break-after:avoid}' : '';
