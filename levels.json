@@ -1,31 +1,30 @@
 {
-  "date": "2026-11-16",
-  "oi_date": "2026-11-13",
+  "date": "2026-11-17",
+  "oi_date": "2026-11-16",
   "source": "Databento OPRA open interest; futures level = strike + basis",
   "ES": {
-    "put_wall": 7523.0,
+    "put_wall": 7423.0,
     "call_wall": 7723.0,
     "put_2": 7323.0,
-    "call_2": 7823.0,
-    "index_put_wall": 7500.0,
+    "call_2": 7523.0,
+    "index_put_wall": 7400.0,
     "index_call_wall": 7700.0,
-    "put_wall_oi": 68751,
-    "call_wall_oi": 51917,
-    "pc_oi_ratio": 1.18,
+    "put_wall_oi": 49700,
+    "call_wall_oi": 58000,
+    "pc_oi_ratio": 2.03,
     "basis": 23.0,
-    "index_spot": 7561.67
+    "index_spot": 7416.59
   },
   "NQ": {
-    "put_wall": 27594.0,
+    "put_wall": 27094.0,
     "call_wall": 28094.0,
-    "put_2": 27094.0,
-    "call_2": 29094.0,
-    "index_put_wall": 27500.0,
+    "put_2": 26794.0,
+    "call_2": 0,
+    "index_put_wall": 27000.0,
     "index_call_wall": 28000.0,
-    "put_wall_oi": 666,
-    "call_wall_oi": 538,
-    "pc_oi_ratio": 1.23,
+    "put_wall_oi": 1863,
+    "pc_oi_ratio": 2.65,
     "basis": 94.0,
-    "index_spot": 27943.74
+    "index_spot": 27197.15
   }
 }
