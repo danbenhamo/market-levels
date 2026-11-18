@@ -3,7 +3,7 @@
 // Every number and Latin term is wrapped in an isolated left-to-right span so Hebrew sentences read correctly.
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const W = String.raw`[+\-−±~$]?[A-Za-z0-9$](?:[A-Za-z0-9$%.,/&+\-–:]*[A-Za-z0-9%$])?`;
-const LTR = new RegExp(String.raw`(?<![֐-׿A-Za-z0-9])` + W + String.raw`(?:[ ]` + W + `)*`, 'gu');
+const LTR = new RegExp(String.raw`(?<![֐-׿A-Za-z0-9])` + W + String.raw`(?:(?:[ ]|[ ]/[ ])` + W + `)*`, 'gu');
 const t = s => { s = String(s ?? ''); let out = '', last = 0; for (const m of s.matchAll(LTR)) { out += esc(s.slice(last, m.index)) + `<bdi class="n">${esc(m[0])}</bdi>`; last = m.index + m[0].length; } return out + esc(s.slice(last)); };
 
 const DIR = {
@@ -110,3 +110,5 @@ module.exports = function briefHtml(d) {
 </div>
 </div>`;
 };
+module.exports.t = t;
+module.exports.esc = esc;
