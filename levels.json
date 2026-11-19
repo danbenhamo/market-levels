@@ -1,23 +1,32 @@
 {
   "date": "2026-11-19",
-  "oi_date": "2026-11-17",
+  "oi_date": "2026-11-18",
   "source": "Databento OPRA open interest; futures level = strike + basis",
   "ES": {
     "put_wall": 7316.0,
-    "call_wall": 7716.0,
+    "call_wall": 7516.0,
     "put_2": 7016.0,
-    "call_2": 0,
+    "call_2": 7616.0,
     "index_put_wall": 7300.0,
-    "index_call_wall": 7700.0,
-    "basis": 16.0
+    "index_call_wall": 7500.0,
+    "put_wall_oi": 42129,
+    "call_wall_oi": 37094,
+    "pc_oi_ratio": 2.29,
+    "basis": 16.0,
+    "index_spot": 7323.63
   },
   "NQ": {
     "put_wall": 27074.0,
     "call_wall": 27574.0,
-    "put_2": 0,
-    "call_2": 0,
+    "put_2": 26074.0,
+    "call_2": 28074.0,
     "index_put_wall": 27000.0,
     "index_call_wall": 27500.0,
-    "basis": 74.0
-  }
+    "put_wall_oi": 2203,
+    "call_wall_oi": 1007,
+    "pc_oi_ratio": 1.58,
+    "basis": 74.0,
+    "index_spot": 27116.26
+  },
+  "note": "ES: 7,000 put strike (142K) also holds 82K calls (structural), so it is put_2; nearest big put 7,300 is the put wall. Call OI at 7,500 and 7,600 is almost equal; the nearer 7,500 is the call wall."
 }
