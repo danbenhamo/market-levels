@@ -1,15 +1,15 @@
 {
-  "date": "2026-11-18",
+  "date": "2026-11-19",
   "oi_date": "2026-11-17",
   "source": "Databento OPRA open interest; futures level = strike + basis",
   "ES": {
-    "put_wall": 7319.0,
-    "call_wall": 7719.0,
-    "put_2": 7019.0,
+    "put_wall": 7316.0,
+    "call_wall": 7716.0,
+    "put_2": 7016.0,
     "call_2": 0,
     "index_put_wall": 7300.0,
     "index_call_wall": 7700.0,
-    "basis": 19.0
+    "basis": 16.0
   },
   "NQ": {
     "put_wall": 27074.0,
