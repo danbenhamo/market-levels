@@ -1,32 +1,32 @@
 {
-  "date": "2026-11-19",
-  "oi_date": "2026-11-18",
+  "date": "2026-11-20",
+  "oi_date": "2026-11-19",
   "source": "Databento OPRA open interest; futures level = strike + basis",
   "ES": {
-    "put_wall": 7316.0,
-    "call_wall": 7516.0,
-    "put_2": 7016.0,
-    "call_2": 7616.0,
-    "index_put_wall": 7300.0,
-    "index_call_wall": 7500.0,
-    "put_wall_oi": 42129,
-    "call_wall_oi": 37094,
-    "pc_oi_ratio": 2.29,
-    "basis": 16.0,
-    "index_spot": 7323.63
+    "put_wall": 7018.0,
+    "call_wall": 7368.0,
+    "put_2": 7118.0,
+    "call_2": 7518.0,
+    "index_put_wall": 7000.0,
+    "index_call_wall": 7350.0,
+    "put_wall_oi": 132588,
+    "call_wall_oi": 64398,
+    "pc_oi_ratio": 3.07,
+    "basis": 18.0,
+    "index_spot": 7175.83
   },
   "NQ": {
-    "put_wall": 27074.0,
-    "call_wall": 27574.0,
-    "put_2": 26074.0,
-    "call_2": 28074.0,
-    "index_put_wall": 27000.0,
-    "index_call_wall": 27500.0,
-    "put_wall_oi": 2203,
-    "call_wall_oi": 1007,
-    "pc_oi_ratio": 1.58,
-    "basis": 74.0,
-    "index_spot": 27116.26
+    "put_wall": 26071.0,
+    "call_wall": 27071.0,
+    "put_2": 25771.0,
+    "call_2": 27571.0,
+    "index_put_wall": 26000.0,
+    "index_call_wall": 27000.0,
+    "put_wall_oi": 544,
+    "call_wall_oi": 1703,
+    "pc_oi_ratio": 1.97,
+    "basis": 71.0,
+    "index_spot": 26517.0
   },
-  "note": "ES: 7,000 put strike (142K) also holds 82K calls (structural), so it is put_2; nearest big put 7,300 is the put wall. Call OI at 7,500 and 7,600 is almost equal; the nearer 7,500 is the call wall."
+  "note": "ES: SPX 7,500 holds puts above half of its call OI and is 4.5% above spot (structural), so it is call_2; biggest call strike within 3% above spot is 7,350 = call wall. Put wall SPX 7,000 is 2.5% below spot. NQ: NDX 27,500 is structural (3.7% above, puts > half of calls), so call_2; biggest call within 3% is 27,000 = call wall. NDX close derived from -2.21% (26,517); basis ES 18 (7,194.25 at 16:00 ET), NQ 71 (26,588.25)."
 }
