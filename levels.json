@@ -16,15 +16,15 @@
     "index_spot": 7072
   },
   "NQ": {
-    "put_wall": 25071.0,
-    "call_wall": 27171.0,
-    "put_2": 25671.0,
+    "put_wall": 25067.0,
+    "call_wall": 27167.0,
+    "put_2": 25667.0,
     "call_2": 0,
     "index_put_wall": 25000.0,
     "index_call_wall": 27100.0,
     "put_wall_oi": 320,
     "call_wall_oi": 220,
-    "basis": 71.0,
+    "basis": 67.0,
     "index_spot": 25799
   }
 }
