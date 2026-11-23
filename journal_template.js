@@ -36,6 +36,31 @@ function equitySvg(days) {
   return s + '</svg>';
 }
 
+
+// Month calendar: one row per week (Mon–Fri) and a week total, like a trading-platform P&L calendar.
+function calendarHtml(byDay, month) {
+  const [Y, M] = month.split('-').map(Number);
+  const first = new Date(Date.UTC(Y, M - 1, 1)), last = new Date(Date.UTC(Y, M, 0));
+  const iso = dt => dt.toISOString().slice(0, 10);
+  const weekNo = dt => { const d = new Date(Date.UTC(dt.getUTCFullYear(), dt.getUTCMonth(), dt.getUTCDate())); const day = d.getUTCDay() || 7; d.setUTCDate(d.getUTCDate() + 4 - day); const y0 = new Date(Date.UTC(d.getUTCFullYear(), 0, 1)); return Math.ceil(((d - y0) / 86400000 + 1) / 7); };
+  const start = new Date(first); start.setUTCDate(first.getUTCDate() - ((first.getUTCDay() + 6) % 7));   // back to Monday
+  const map = Object.fromEntries(byDay.map(g => [g.date, g]));
+  let rows = '';
+  for (let wk = new Date(start); wk <= last; wk.setUTCDate(wk.getUTCDate() + 7)) {
+    let cells = '', wsum = 0, wdays = 0;
+    for (let i = 0; i < 5; i++) {
+      const dt = new Date(wk); dt.setUTCDate(wk.getUTCDate() + i);
+      const inMonth = dt.getUTCMonth() === M - 1, g = map[iso(dt)];
+      if (g) { wsum += g.pnl; wdays++; }
+      const k = !inMonth ? 'out' : g ? (g.pnl > 0 ? 'win' : g.pnl < 0 ? 'loss' : 'flat') : 'none';
+      cells += `<td class="cd ${k}"><span class="dn2">${dt.getUTCDate()}</span>` + (g && inMonth
+        ? `<b>${t(money(g.pnl))}</b><small>${g.n} עסקאות</small><small>${t(Math.round(100 * g.w / g.n) + '%')}</small>` : '') + '</td>';
+    }
+    rows += `<tr><td class="wk"><small>שבוע ${weekNo(wk)}</small><b class="${cls(wsum)}">${t(money(wsum))}</b><span class="dd">${wdays} ימים</span></td>${cells}</tr>`;
+  }
+  return `<table class="cal"><tr><th></th><th>שני</th><th>שלישי</th><th>רביעי</th><th>חמישי</th><th>שישי</th></tr>${rows}</table>`;
+}
+
 module.exports = function journalHtml(d) {
   const tr = [...d.trades].sort((a, b) => (a.date + a.time_in).localeCompare(b.date + b.time_in));
   const wins = tr.filter(x => x.pnl > 0), losses = tr.filter(x => x.pnl < 0);
@@ -69,6 +94,7 @@ module.exports = function journalHtml(d) {
     });
   });
 
+  const monthKey = tr.length ? tr[tr.length - 1].date.slice(0, 7) : new Date().toISOString().slice(0, 7);
   const tips = (d.tips || []).length ? `<section class="tips"><h2>🎯 הדגשים למחר</h2><ul>${d.tips.map(x => `<li>${t(x)}</li>`).join('')}</ul></section>` : '';
 
   return `<title>${esc('יומן עסקאות ' + (d.month || ''))}</title>
@@ -96,6 +122,17 @@ tr{break-inside:avoid}
 .side{font-weight:700;font-size:12.5px;white-space:nowrap}.side.long{color:var(--bull)}.side.short{color:var(--bear)}
 .pnl{font-size:13.5px}.note{color:var(--muted);font-size:12px;max-width:190px}
 .tips{border-right:6px solid #6a3fc4}.tips h2{color:#6a3fc4}.tips ul{margin:0;padding-inline-start:20px}
+.calwrap{break-inside:avoid}
+.cal{table-layout:fixed;border-collapse:separate;border-spacing:5px}
+.cal th{background:none;text-align:center;font-size:12.5px}
+.cal td{border:none;border-radius:8px;height:68px;text-align:center;vertical-align:middle;padding:4px;position:relative}
+.cal .cd{background:#e9ecf2;color:#131a26}.cal .cd.out{background:#f6f7f9}
+.cal .cd.win{background:#12a150;color:#fff}.cal .cd.loss{background:#d93545;color:#fff}.cal .cd.flat{background:#9aa4b5;color:#fff}
+.cal .cd b{display:block;font-size:15px}.cal .cd small{display:block;font-size:11px;opacity:.92}
+.cal .dn2{position:absolute;top:3px;left:6px;font-size:11px;opacity:.75}
+.cal .wk{background:#16233f;color:#fff;width:92px}.cal .wk small{display:block;font-size:11px;color:#b9c6e4}
+.cal .wk b{display:block;font-size:15px}.cal .wk b.up{color:#5fd68f}.cal .wk b.dn{color:#ff8a80}
+.cal .wk .dd{display:inline-block;margin-top:2px;font-size:10.5px;border:1px solid #5fd68f;border-radius:4px;padding:0 5px;color:#5fd68f}
 .foot{font-size:12px;color:var(--muted);text-align:center}
 </style>
 <div class="wrap" dir="rtl" lang="he">
@@ -108,6 +145,7 @@ tr{break-inside:avoid}
 </div>
 ${tips}
 <section><h2>כל העסקאות</h2><table><tr><th>שעות</th><th>חוזה</th><th>כיוון</th><th>חוזים</th><th>כניסה</th><th>יציאה</th><th>נקודות</th><th>רווח/הפסד</th><th>הערה</th></tr>${tradeRows}</table></section>
+<section class="calwrap"><h2>🗓️ לוח חודשי</h2>${calendarHtml(byDay, monthKey)}</section>
 <div class="foot">חשבון דמו. שעון ישראל. לא ייעוץ השקעות.</div>
 </div>`;
 };
