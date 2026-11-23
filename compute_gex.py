@@ -150,8 +150,8 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     for a in ["date", "quote-time", "spx-oi", "spx-q", "ndx-oi", "ndx-q", "out"]: p.add_argument("--" + a)
     for a in ["spx-spot", "es-basis", "ndx-spot", "nq-basis"]: p.add_argument("--" + a, type=float)
-    p.add_argument("--days", type=int, default=14)
-    p.add_argument("--band", type=float, default=0.06)
+    p.add_argument("--days", type=int, default=21)
+    p.add_argument("--band", type=float, default=0.12)
     a = p.parse_args()
     out = {"date": a.date, "quote_time": a.quote_time, "r": R,
            "note": "Gamma exposure: dealers assumed long calls / short puts. Rows: [index strike, expiry UTC, call OI, put OI, IV].",
