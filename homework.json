@@ -1,95 +1,95 @@
 {
- "date": "2026-11-25",
- "data_until_utc": "2026-11-25 00:47",
+ "date": "2026-11-27",
+ "data_until_utc": "2026-11-26 22:48",
  "note": "Futures prices. Base rates are history, not a forecast.",
  "ES": {
   "prev_rth": {
-   "date": "2026-11-24",
-   "open": 7182.75,
-   "high": 7240.75,
-   "low": 7152.25,
-   "close": 7220.0,
-   "vwap": 7198.24,
-   "poc": 7216.75,
-   "vah": 7227.5,
-   "val": 7181.5,
-   "ib_high": 7240.75,
-   "ib_low": 7152.25,
-   "range": 88.5
+   "date": "2026-11-25",
+   "open": 7059.75,
+   "high": 7214.0,
+   "low": 6982.5,
+   "close": 7196.75,
+   "vwap": 7102.19,
+   "poc": 7203.25,
+   "vah": 7214.0,
+   "val": 7034.0,
+   "ib_high": 7079.0,
+   "ib_low": 6982.5,
+   "range": 231.5
   },
   "overnight": {
-   "high": 7224.0,
-   "low": 7181.5,
-   "last": 7192.75,
-   "last_bar_utc": "2026-11-25 00:47"
+   "high": 7256.25,
+   "low": 7183.25,
+   "last": 7234.5,
+   "last_bar_utc": "2026-11-26 17:59"
   },
   "week_high": 7313.25,
-  "week_low": 7071.0,
+  "week_low": 6982.5,
   "month_high": 7746.25,
   "month_low": 6898.0,
-  "atr14": 165.04,
-  "avg_range_20d": 166.43,
+  "atr14": 162.21,
+  "avg_range_20d": 169.96,
   "base_rates": [
    {
     "condition": "all days (10y)",
-    "days": 3151,
+    "days": 3152,
     "next_up_pct": 55,
     "next_breaks_high_pct": 55,
-    "next_breaks_low_pct": 46,
+    "next_breaks_low_pct": 45,
     "next_avg_range_pct": 1.22,
     "next_avg_change_pct": 0.04
    },
    {
-    "condition": "after a -2%..-0.5% day (yesterday -0.73%)",
-    "days": 499,
-    "next_up_pct": 56,
-    "next_breaks_high_pct": 23,
-    "next_breaks_low_pct": 61,
-    "next_avg_range_pct": 1.57,
-    "next_avg_change_pct": 0.09
+    "condition": "after a -0.5%..+0.5% day (yesterday +0.39%)",
+    "days": 1805,
+    "next_up_pct": 54,
+    "next_breaks_high_pct": 59,
+    "next_breaks_low_pct": 52,
+    "next_avg_range_pct": 0.98,
+    "next_avg_change_pct": 0.04
    },
    {
-    "condition": "after 1 down day(s) in a row",
-    "days": 801,
+    "condition": "after 2 up day(s) in a row",
+    "days": 412,
     "next_up_pct": 57,
-    "next_breaks_high_pct": 38,
-    "next_breaks_low_pct": 62,
-    "next_avg_range_pct": 1.27,
-    "next_avg_change_pct": 0.07
+    "next_breaks_high_pct": 72,
+    "next_breaks_low_pct": 34,
+    "next_avg_range_pct": 1.06,
+    "next_avg_change_pct": 0.02
    }
   ]
  },
  "NQ": {
   "prev_rth": {
-   "date": "2026-11-24",
-   "open": 26361.25,
-   "high": 26509.75,
-   "low": 25998.0,
-   "close": 26284.25,
-   "vwap": 26244.75,
-   "poc": 26281.0,
-   "vah": 26371.5,
-   "val": 26133.75,
-   "ib_high": 26509.75,
-   "ib_low": 26110.0,
-   "range": 511.75
+   "date": "2026-11-25",
+   "open": 25409.25,
+   "high": 26146.25,
+   "low": 25027.5,
+   "close": 26104.25,
+   "vwap": 25545.16,
+   "poc": 25136.0,
+   "vah": 25859.5,
+   "val": 25059.0,
+   "ib_high": 25509.75,
+   "ib_low": 25027.5,
+   "range": 1118.75
   },
   "overnight": {
-   "high": 26350.75,
-   "low": 26092.0,
-   "last": 26159.75,
-   "last_bar_utc": "2026-11-25 00:47"
+   "high": 26436.0,
+   "low": 25982.75,
+   "last": 26221.25,
+   "last_bar_utc": "2026-11-26 17:59"
   },
   "week_high": 27137.0,
-  "week_low": 25805.5,
-  "month_high": 29131.0,
+  "week_low": 25027.5,
+  "month_high": 28969.0,
   "month_low": 24976.5,
-  "atr14": 958.29,
-  "avg_range_20d": 958.12,
+  "atr14": 928.52,
+  "avg_range_20d": 972.67,
   "base_rates": [
    {
     "condition": "all days (10y)",
-    "days": 3151,
+    "days": 3152,
     "next_up_pct": 56,
     "next_breaks_high_pct": 56,
     "next_breaks_low_pct": 44,
@@ -97,22 +97,22 @@
     "next_avg_change_pct": 0.06
    },
    {
-    "condition": "after a ≤-2% day (yesterday -2.08%)",
-    "days": 172,
-    "next_up_pct": 57,
-    "next_breaks_high_pct": 10,
-    "next_breaks_low_pct": 72,
-    "next_avg_range_pct": 2.95,
-    "next_avg_change_pct": 0.34
+    "condition": "after a +0.5%..+2% day (yesterday +0.51%)",
+    "days": 780,
+    "next_up_pct": 54,
+    "next_breaks_high_pct": 75,
+    "next_breaks_low_pct": 22,
+    "next_avg_range_pct": 1.52,
+    "next_avg_change_pct": -0.01
    },
    {
-    "condition": "after 1 down day(s) in a row",
-    "days": 794,
-    "next_up_pct": 57,
-    "next_breaks_high_pct": 37,
-    "next_breaks_low_pct": 61,
-    "next_avg_range_pct": 1.71,
-    "next_avg_change_pct": 0.1
+    "condition": "after 1 up day(s) in a row",
+    "days": 795,
+    "next_up_pct": 54,
+    "next_breaks_high_pct": 69,
+    "next_breaks_low_pct": 31,
+    "next_avg_range_pct": 1.62,
+    "next_avg_change_pct": -0.01
    }
   ]
  }

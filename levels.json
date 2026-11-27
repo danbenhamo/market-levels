@@ -1,32 +1,31 @@
 {
-  "date": "2026-11-25",
-  "oi_date": "2026-11-23",
-  "source": "Databento OPRA open interest published 24.11 (positions after the 23.11 close); walls chosen around the 25.11 pre-market price; futures level = strike + basis",
+  "date": "2026-11-27",
+  "oi_date": "2026-11-25",
+  "source": "Databento OPRA open interest; futures level = strike + basis",
   "ES": {
     "put_wall": 7013.0,
-    "call_wall": 7413.0,
+    "call_wall": 7613.0,
     "put_2": 7113.0,
     "call_2": 7563.0,
     "index_put_wall": 7000.0,
-    "index_call_wall": 7400.0,
-    "put_wall_oi": 35433,
-    "call_wall_oi": 18643,
-    "pc_oi_ratio": 1.68,
+    "index_call_wall": 7600.0,
+    "put_wall_oi": 35277,
+    "call_wall_oi": 24961,
+    "pc_oi_ratio": 1.14,
     "basis": 13.0,
-    "index_spot": 7150
+    "index_spot": 7302.0
   },
   "NQ": {
-    "put_wall": 25054.0,
-    "call_wall": 26754.0,
-    "put_2": 24054.0,
-    "call_2": 26654.0,
-    "index_put_wall": 25000.0,
-    "index_call_wall": 26700.0,
-    "put_wall_oi": 277,
-    "call_wall_oi": 453,
-    "pc_oi_ratio": 0.98,
+    "put_wall": 26054.0,
+    "call_wall": 27054.0,
+    "put_2": 25654.0,
+    "call_2": 27754.0,
+    "index_put_wall": 26000.0,
+    "index_call_wall": 27000.0,
+    "put_wall_oi": 224,
+    "call_wall_oi": 339,
+    "pc_oi_ratio": 0.73,
     "basis": 54.0,
-    "index_spot": 25850
-  },
-  "note": "NQ: 26,000 put strike is structural (call OI 161 vs put 202) and 3% below spot, so put_wall = biggest put within 3% (26,725)."
+    "index_spot": 26746.0
+  }
 }
